@@ -1,0 +1,4 @@
+---
+profile_puppet_agent::service_enabled: true
+profile_puppet_agent::service_name: "puppet"
+profile_puppet_agent::service_running: true

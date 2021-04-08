@@ -1,0 +1,4 @@
+---
+profile_puppet_agent::absent_packages:
+  - "puppet5-release"
+  - "puppetlabs-release-pc1"
