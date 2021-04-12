@@ -36,7 +36,7 @@ class profile_puppet_agent
   # Ensure the resources
   ensure_packages( $absent_packages, $absent_packages_defaults )
 
-  package { 'puppet-release':
+  package { $repo_rpm_url:
     source   => $repo_rpm_url,
     provider => 'rpm',
   }
