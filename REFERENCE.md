@@ -28,6 +28,7 @@ The following parameters are available in the `profile_puppet_agent` class:
 
 * [`absent_packages`](#absent_packages)
 * [`packages`](#packages)
+* [`repo_rpm_name`](#repo_rpm_name)
 * [`repo_rpm_url`](#repo_rpm_url)
 * [`service_enabled`](#service_enabled)
 * [`service_name`](#service_name)
@@ -44,6 +45,12 @@ Array of package names to ensure absent
 Data type: `Array[ String ]`
 
 Array of package names to install
+
+##### <a name="repo_rpm_name"></a>`repo_rpm_name`
+
+Data type: `String`
+
+String of package name for puppet repo package
 
 ##### <a name="repo_rpm_url"></a>`repo_rpm_url`
 

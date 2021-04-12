@@ -4,3 +4,4 @@ profile_puppet_agent::absent_packages:
   - "puppetlabs-release-pc1"
 profile_puppet_agent::packages:
   - "puppet-agent"
+profile_puppet_agent::repo_rpm_name: "puppet-release"
