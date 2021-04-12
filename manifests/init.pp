@@ -6,6 +6,9 @@
 # @param packages
 #   Array of package names to install
 #
+# @param repo_rpm_name
+#   String of package name for puppet repo package
+#
 # @param repo_rpm_url
 #   String of URL for puppet repo package
 #
@@ -24,6 +27,7 @@ class profile_puppet_agent
 (
   Array[ String ] $absent_packages,
   Array[ String ] $packages,
+  String          $repo_rpm_name,
   String          $repo_rpm_url,
   Boolean         $service_enabled,
   String          $service_name,
@@ -36,13 +40,13 @@ class profile_puppet_agent
   # Ensure the resources
   ensure_packages( $absent_packages, $absent_packages_defaults )
 
-  package { $repo_rpm_url:
+  package { $repo_rpm_name:
     source   => $repo_rpm_url,
     provider => 'rpm',
   }
 
   $packages_defaults = {
-    require => Package[$repo_rpm_url],
+    require => Package[$repo_rpm_name],
   }
   ensure_packages( $packages, $packages_defaults )
 
