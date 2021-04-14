@@ -1,2 +1,0 @@
----
-profile_puppet_agent::repo_rpm_url: "https://yum.puppetlabs.com/puppet-release-el-8.noarch.rpm"

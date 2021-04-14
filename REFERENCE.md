@@ -28,11 +28,10 @@ The following parameters are available in the `profile_puppet_agent` class:
 
 * [`absent_packages`](#absent_packages)
 * [`packages`](#packages)
-* [`repo_rpm_name`](#repo_rpm_name)
-* [`repo_rpm_url`](#repo_rpm_url)
 * [`service_enabled`](#service_enabled)
 * [`service_name`](#service_name)
 * [`service_running`](#service_running)
+* [`yumrepo`](#yumrepo)
 
 ##### <a name="absent_packages"></a>`absent_packages`
 
@@ -45,18 +44,6 @@ Array of package names to ensure absent
 Data type: `Array[ String ]`
 
 Array of package names to install
-
-##### <a name="repo_rpm_name"></a>`repo_rpm_name`
-
-Data type: `String`
-
-String of package name for puppet repo package
-
-##### <a name="repo_rpm_url"></a>`repo_rpm_url`
-
-Data type: `String`
-
-String of URL for puppet repo package
 
 ##### <a name="service_enabled"></a>`service_enabled`
 
@@ -75,4 +62,10 @@ String of the name of the puppet agent service
 Data type: `Boolean`
 
 Boolean to determine if the puppet agent service is ensured running
+
+##### <a name="yumrepo"></a>`yumrepo`
+
+Data type: `Hash`
+
+Hash of yumrepo resource for puppet yum repository
 
