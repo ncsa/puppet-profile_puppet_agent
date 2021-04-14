@@ -1,7 +1,14 @@
 ---
 profile_puppet_agent::absent_packages:
+  - "puppet-release"
   - "puppet5-release"
   - "puppetlabs-release-pc1"
 profile_puppet_agent::packages:
   - "puppet-agent"
-profile_puppet_agent::repo_rpm_name: "puppet-release"
+profile_puppet_agent::yumrepo:
+  puppet:
+    baseurl: "https://yum.puppetlabs.com/puppet/el/$releasever/$basearch"
+    descr: "Puppet Repository el $releasever - $basearch"
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: "https://yum.puppet.com/RPM-GPG-KEY-puppet-20250406"

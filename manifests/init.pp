@@ -6,12 +6,6 @@
 # @param packages
 #   Array of package names to install
 #
-# @param repo_rpm_name
-#   String of package name for puppet repo package
-#
-# @param repo_rpm_url
-#   String of URL for puppet repo package
-#
 # @param service_enabled
 #   Boolean to determine if the puppet agent service is enabled
 #
@@ -21,17 +15,19 @@
 # @param service_running
 #   Boolean to determine if the puppet agent service is ensured running
 #
+# @param yumrepo
+#   Hash of yumrepo resource for puppet yum repository
+#
 # @example
 #   include profile_puppet_agent
 class profile_puppet_agent
 (
   Array[ String ] $absent_packages,
   Array[ String ] $packages,
-  String          $repo_rpm_name,
-  String          $repo_rpm_url,
   Boolean         $service_enabled,
   String          $service_name,
   Boolean         $service_running,
+  Hash            $yumrepo,
 ) {
 
   $absent_packages_defaults = {
@@ -40,13 +36,13 @@ class profile_puppet_agent
   # Ensure the resources
   ensure_packages( $absent_packages, $absent_packages_defaults )
 
-  package { $repo_rpm_name:
-    source   => $repo_rpm_url,
-    provider => 'rpm',
+  $yumrepo_defaults = {
+    ensure  => present,
+    enabled => true,
   }
+  ensure_resources( 'yumrepo', $yumrepo, $yumrepo_defaults )
 
   $packages_defaults = {
-    require => Package[$repo_rpm_name],
   }
   ensure_packages( $packages, $packages_defaults )
 
