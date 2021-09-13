@@ -1,4 +1,9 @@
 ---
+profile_puppet_agent::config:
+  - "section": ""
+    "setting": "lastrunfile"
+    "value": "$publicdir/last_run_summary.yaml { owner = root, group = service, mode = 0644 }"
+profile_puppet_agent::config_file: "/etc/puppetlabs/puppet/puppet.conf"
 profile_puppet_agent::service_enabled: true
 profile_puppet_agent::service_name: "puppet"
 profile_puppet_agent::service_running: true

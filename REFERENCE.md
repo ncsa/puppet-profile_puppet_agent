@@ -27,6 +27,8 @@ include profile_puppet_agent
 The following parameters are available in the `profile_puppet_agent` class:
 
 * [`absent_packages`](#absent_packages)
+* [`config`](#config)
+* [`config_file`](#config_file)
 * [`packages`](#packages)
 * [`service_enabled`](#service_enabled)
 * [`service_name`](#service_name)
@@ -38,6 +40,18 @@ The following parameters are available in the `profile_puppet_agent` class:
 Data type: `Array[ String ]`
 
 Array of package names to ensure absent
+
+##### <a name="config"></a>`config`
+
+Data type: `Array[ Hash ]`
+
+Array of puppet agent config hashes for puppet_agent::config
+
+##### <a name="config_file"></a>`config_file`
+
+Data type: `String`
+
+Full path to puppet config file
 
 ##### <a name="packages"></a>`packages`
 
