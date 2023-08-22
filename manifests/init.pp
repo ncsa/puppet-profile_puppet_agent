@@ -26,18 +26,16 @@
 #
 # @example
 #   include profile_puppet_agent
-class profile_puppet_agent
-(
-  Array[ String ] $absent_packages,
-  Array[ Hash ]   $config,
-  String          $config_file,
-  Array[ String ] $packages,
-  Boolean         $service_enabled,
-  String          $service_name,
-  Boolean         $service_running,
-  Hash            $yumrepo,
+class profile_puppet_agent (
+  Array[String] $absent_packages,
+  Array[Hash]   $config,
+  String        $config_file,
+  Array[String] $packages,
+  Boolean       $service_enabled,
+  String        $service_name,
+  Boolean       $service_running,
+  Hash          $yumrepo,
 ) {
-
   ## IN THE FUTURE WE MAY WANT TO EXPLORE USING 
   ## https://github.com/puppetlabs/puppetlabs-puppet_agent/
 
@@ -78,5 +76,4 @@ class profile_puppet_agent
       path    => $config_file,
     }
   }
-
 }
